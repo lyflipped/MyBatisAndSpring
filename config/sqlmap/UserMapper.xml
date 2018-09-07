@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test">
+	<!-- 此处resultType使用的user，但是这个类的全名是com.sm.po.User -->
+	<!-- 因为在SqlMapperConfig.xml中配置了com.sm.po别名 ，所以使用的时候只需要首字母小写就行了-->
+	<select id = "findUserById" parameterType = "int" resultType = "user">
+		SELECT * FROM USER WHERE id=#{id}
+	</select>
+	<select id = "findAll"  resultType = "user">
+		SELECT * FROM USER 
+	</select>
+	<insert id = "insertUser" parameterType="user">
+		insert into user(username,password,gender,birthday,email,province,city)
+		value(#{username},#{password},#{gender},#{birthday},#{email},#{province},#{city})
+	</insert>
+	<delete id = "deleteUser" parameterType="int">
+		delete from user where id=#{id}
+	</delete>
+	<update id = "updateUserName" parameterType="user">
+		update user set username=#{username} where id=#{id}
+	</update>
+	<!-- 当前使用的resultType都是我们自己定义好的Java类型,但是该类里面的属性都不包含JavaBean -->
+	<!-- 要使用复杂的Java类型来接收，需要我们自己构造resultMap -->
+</mapper>
