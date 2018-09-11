@@ -14,7 +14,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</settings>
 	<!-- 别名定义 -->
 	<typeAliases>
-		<package name="com.sm.po"/>
+		<package name="com.ssm.po"/>
 	</typeAliases>
 	<!--  因为在spring中已经配置了数据源，这里就不需要了
 	<environments default = "development">

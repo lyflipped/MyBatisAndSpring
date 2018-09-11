@@ -1,9 +1,9 @@
-package com.sm.po;
+package com.ssm.po;
 
 import java.io.Serializable;
 
 public class User implements Serializable{
-	private int id;
+	private Integer id;
 	private String username;
 	private String password;
 	private String gender;
@@ -11,10 +11,10 @@ public class User implements Serializable{
 	private String province;
 	private String city;
 	private String birthday;
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getUsername() {

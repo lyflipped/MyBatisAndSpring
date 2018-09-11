@@ -37,21 +37,22 @@
 
 	<!-- 配置SqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="configLocation" value = "mybatis/SqlMapConfig.xml"/>
+		<property name="configLocation" value = "classpath:mybatis/SqlMapConfig.xml"/>
+		 <property name="mapperLocations" value="classpath:com/ssm/mapper/*.xml"></property>
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	
 	<!-- 配置默认的Mapper代理扫描器 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 指定扫描的包名 -->
-		<property name="basePackage" value="com.sm.mapper"></property>
+		<property name="basePackage" value="com.ssm.dao"></property>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
 	<!-- 原始DAO接口 -->
 	<!-- Spring有三种配置bean的方式，一种是手动将bean写到当前的xml文件中，
 	还有一种是使用spring的注解形式@Repository@Component@Service@Controller等 
 	最后一种是通过接口的形式(十分不常用)-->
-	<bean id="userDao" class="com.sm.dao.impl.UserDaoImpl">
+	<!--<bean id="userDao" class="com.ssm.dao.impl.UserDaoImpl">
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-	</bean>
+	</bean>-->
 </beans>
